@@ -1,0 +1,13 @@
+services:
+  loki:
+    image: ghcr.io/sanders41/loki-healthcheck:latest
+    container_name: loki
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:3100/ready"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    ports:
+      - "127.0.0.1:3100:3100"

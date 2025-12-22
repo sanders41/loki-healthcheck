@@ -1,0 +1,9 @@
+services:
+  loki:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    container_name: loki
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3100:3100"

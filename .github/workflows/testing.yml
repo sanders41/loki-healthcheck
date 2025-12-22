@@ -1,0 +1,19 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  docker-build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./tests
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build container
+        run: docker compose build
+      - name: Run tests
+        run: ./run_test.sh
