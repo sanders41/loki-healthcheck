@@ -1,7 +1,7 @@
 FROM alpine:3.22 AS curl-builder
 RUN apk add --no-cache curl
 
-FROM grafana/loki:3.6.3
+FROM grafana/loki:3.6.3 AS runner
 COPY --from=curl-builder /usr/bin/curl /usr/bin/curl
 COPY --from=curl-builder /lib/ld-musl-x86_64.so.1 /lib/
 COPY --from=curl-builder /usr/lib/libcurl.so.4 /usr/lib/
