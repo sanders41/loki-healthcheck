@@ -1,5 +1,8 @@
 # Loki docker image that has the ability to run health checks
 
+> [!NOTE]
+> loki has added back the ability to run health checks so this is no longer needed
+
 In Loki 3.6 the ability to run health checks in the docker container was removed. This image adds
 the the ability to run health checks with curl.
 
